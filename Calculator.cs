@@ -17,9 +17,14 @@ namespace Basic_Calculator_SIM
             InitializeComponent();
         }
 
+        private float firstNumber = 0;
+        string operation = "";
+
         private void calcDisplay_TextChanged(object sender, EventArgs e)
         {
-
+            //string storedNumberString = calcDisplay.Text;
+            //float storedNumber;
+            
         }
 
         private void numberButton_Click(object sender, EventArgs e)
@@ -94,10 +99,11 @@ namespace Basic_Calculator_SIM
             numberButton_Click(sender, e);
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void buttonClear_Click(object sender, EventArgs e)
         {
             // This clears the display
             calcDisplay.Text = "";
+            firstNumber = 0; // Reset the answer
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -111,9 +117,9 @@ namespace Basic_Calculator_SIM
             }
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void buttonPI_Click(object sender, EventArgs e)
         {
-
+            // This is the PI constant button
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -129,6 +135,21 @@ namespace Basic_Calculator_SIM
         private void button17_Click(object sender, EventArgs e)
         {
             // This is the addition button
+            if (calcDisplay.Text.Length > 0)
+            {
+                // Try to parse the first number from the display text
+                if (float.TryParse(calcDisplay.Text, out firstNumber))
+                {
+                    // Successfully parsed the number
+                    operation = "+";
+                    calcDisplay.Text = ""; // Clear the display for the next input
+                }
+                else
+                {
+                    // Handle the case where parsing fails (e.g., display invalid input)
+                    MessageBox.Show("Invalid input. Please enter a valid number.");
+                }
+            }
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -146,9 +167,27 @@ namespace Basic_Calculator_SIM
             // This is the division button
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void buttonEquals_Click(object sender, EventArgs e)
         {
             // This is the equals button
+            float secondNumber;
+            if (float.TryParse(calcDisplay.Text, out secondNumber))
+            {
+                float result = 0;
+
+                if (operation == "+")
+                {
+                    result = firstNumber + secondNumber; // Perform addition
+                    firstNumber = result; // Update firstNumber for potential further calculations
+                    calcDisplay.Text = result.ToString(); // Display the result
+                }
+                operation = ""; // Reset the operation after calculation
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            // This is the percentage button
         }
     }
 }
