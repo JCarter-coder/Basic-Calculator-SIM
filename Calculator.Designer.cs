@@ -55,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.button20);
             this.groupBox1.Controls.Add(this.button19);
             this.groupBox1.Controls.Add(this.button18);
@@ -91,7 +92,7 @@
             this.button20.TabIndex = 20;
             this.button20.Text = "/";
             this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.button20.Click += new System.EventHandler(this.buttonDivide_Click);
             // 
             // button19
             // 
@@ -102,7 +103,7 @@
             this.button19.TabIndex = 19;
             this.button19.Text = "x";
             this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button19.Click += new System.EventHandler(this.buttonMultiply_Click);
             // 
             // button18
             // 
@@ -113,7 +114,7 @@
             this.button18.TabIndex = 18;
             this.button18.Text = "-";
             this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button18.Click += new System.EventHandler(this.buttonSubtract_Click);
             // 
             // button17
             // 
@@ -124,7 +125,7 @@
             this.button17.TabIndex = 17;
             this.button17.Text = "+";
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // button16
             // 
@@ -304,13 +305,14 @@
             // 
             // calcDisplay
             // 
-            this.calcDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.calcDisplay.Font = new System.Drawing.Font("Cascadia Code", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calcDisplay.Location = new System.Drawing.Point(18, 20);
+            this.calcDisplay.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.calcDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.calcDisplay.Font = new System.Drawing.Font("Cascadia Code", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calcDisplay.Location = new System.Drawing.Point(17, 20);
             this.calcDisplay.Name = "calcDisplay";
             this.calcDisplay.ReadOnly = true;
             this.calcDisplay.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.calcDisplay.Size = new System.Drawing.Size(298, 46);
+            this.calcDisplay.Size = new System.Drawing.Size(298, 35);
             this.calcDisplay.TabIndex = 0;
             this.calcDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.calcDisplay.TextChanged += new System.EventHandler(this.calcDisplay_TextChanged);
@@ -319,9 +321,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 623);
+            this.ClientSize = new System.Drawing.Size(449, 614);
             this.Controls.Add(this.groupBox1);
             this.Name = "Calculator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
